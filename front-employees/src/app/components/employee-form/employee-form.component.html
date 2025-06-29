@@ -1,0 +1,72 @@
+<div class="max-w-4xl mx-auto mt-10 bg-white shadow-md rounded-lg p-8">
+  <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">
+    Registrar Empleado
+  </h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm font-medium text-gray-700">Primer Apellido</label>
+        <input type="text" formControlName="firstSurname" class="input-style" />
+      </div>
+      <div>
+        <label class="text-sm font-medium text-gray-700">Segundo Apellido</label>
+        <input type="text" formControlName="secondLastName" class="input-style" />
+      </div>
+      <div>
+        <label class="text-sm font-medium text-gray-700">Primer Nombre</label>
+        <input type="text" formControlName="firstName" class="input-style" />
+      </div>
+      <div>
+        <label class="text-sm font-medium text-gray-700">Otros Nombres</label>
+        <input type="text" formControlName="lastName" class="input-style" />
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm font-medium text-gray-700">País</label>
+        <select formControlName="country" class="input-style">
+          <option value="">Seleccione país</option>
+          <option *ngFor="let c of countries" [value]="c.value">{{ c.label }}</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-sm font-medium text-gray-700">Tipo de Documento</label>
+        <select formControlName="documentType" class="input-style">
+          <option value="">Seleccione tipo</option>
+          <option *ngFor="let d of documentTypes" [value]="d.value">{{ d.label }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm font-medium text-gray-700">Número de Identificación</label>
+        <input type="text" formControlName="documentNumber" class="input-style" />
+      </div>
+      <div>
+        <label class="text-sm font-medium text-gray-700">Fecha de Ingreso</label>
+        <input type="date" formControlName="entryDate" class="input-style" />
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-medium text-gray-700">Área</label>
+      <select formControlName="workArea" class="input-style">
+        <option value="">Seleccione área</option>
+        <option *ngFor="let a of areas" [value]="a.value">{{ a.label }}</option>
+      </select>
+    </div>
+
+    <div class="text-center">
+      <button
+        type="submit"
+        [disabled]="loading"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md shadow disabled:opacity-50"
+      >
+        {{ loading ? 'Registrando...' : 'Registrar Empleado' }}
+      </button>
+    </div>
+  </form>
+</div>

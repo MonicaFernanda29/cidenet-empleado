@@ -1,0 +1,27 @@
+<div class="mt-6">
+  <h2 class="text-xl font-semibold mb-4">Listado de empleados</h2>
+  <table class="min-w-full border border-gray-300 text-sm text-left">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="p-2 border">Nombre</th>
+        <th class="p-2 border">Apellido</th>
+        <th class="p-2 border">Correo</th>
+        <th class="p-2 border">Identificación</th>
+        <th class="p-2 border">País</th>
+        <th class="p-2 border">Área</th>
+        <th class="p-2 border">Fecha ingreso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees" class="hover:bg-gray-50">
+        <td class="p-2 border">{{ emp.firstName }} {{ emp.lastName }}</td>
+        <td class="p-2 border">{{ emp.firstSurname }} {{ emp.secondLastName }}</td>
+        <td class="p-2 border">{{ emp.email }}</td>
+        <td class="p-2 border">{{ emp.documentType }} {{ emp.documentNumber }}</td>
+        <td class="p-2 border">{{ emp.country }}</td>
+        <td class="p-2 border">{{ emp.workArea }}</td>
+        <td class="p-2 border">{{ emp.entryDate }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
